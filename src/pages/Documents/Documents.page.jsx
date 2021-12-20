@@ -3,7 +3,7 @@ import Table from "../../components/Table/Table.component";
 import { Link } from "react-router-dom";
 const Documents = (props) => {
     const documents = useSelector(state => state.documents);
-
+    
     return (
         <>
         <h1>documents page</h1>
