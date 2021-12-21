@@ -5,18 +5,19 @@ import Paginate from "../../components/Paginate/Paginate.component";
 import { Link } from "react-router-dom";
 import { Button,Typography,makeStyles } from '@material-ui/core';
 import Loading from '../../components/Loading/Loading.component';
+import { resultsPerPage } from '../../config';
 
 const Documents = (props) => {
     const classes = useStyles();
     const documents = useSelector(state => state.documents.documents);
     
-    const pages = Math.ceil(documents.length/2);
-    let initialDocs = [...documents].splice(0,2);
+    const pages = Math.ceil(documents.length/resultsPerPage);
+    let initialDocs = [...documents].splice(0,resultsPerPage);
     const [docs,setDocs] = useState({initialLoading:true,docs:[]});
     
     
     const handlePageChange = (event,value) => {
-        let newDocs = [...documents].splice((value-1)*2,2);
+        let newDocs = [...documents].splice((value-1)*resultsPerPage,resultsPerPage);
         setDocs(prevState => ({...prevState,initialLoading:false,docs:[...newDocs]}));
     }
     

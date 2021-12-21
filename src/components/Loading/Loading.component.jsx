@@ -1,5 +1,6 @@
 import React from "react";
 import {Fade,CircularProgress} from '@material-ui/core';
+import { timeLoading } from "../../config";
 
 const Loading = () => {
     const [load,setLoad] = React.useState(true);
@@ -7,7 +8,7 @@ const Loading = () => {
     React.useEffect(()=>{
         let timer = setTimeout(() => {
             setLoad((prevState) => !prevState);
-          }, 5000);
+          }, timeLoading);
     },[]);
     
 
