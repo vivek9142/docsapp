@@ -12,7 +12,7 @@ const Register = (props)=> {
         <div className={classes.register_container}>
         <div className="login__container--header_container">
             <Typography variant='h3'>Register</Typography>
-            <Typography variant='p'>Welcome to our App!</Typography>
+            <Typography variant='h6'>Welcome to our App!</Typography>
         </div>
         <div className={classes.register_container__formContainer}>
             <Formik initialValues={{
@@ -47,7 +47,7 @@ const useStyles = makeStyles(({
   register_container:{
     maxWidth: '30rem',
     margin: '6rem auto',
-    background: '#e6e6e6',
+    background: '#c1c1c1',
     borderRadius: '0.5rem',
     padding:'1rem'
   },

@@ -1,5 +1,5 @@
 import {useField} from 'formik';
-import { TextField,MenuItem } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 
 const InputField = (props) => {
     
@@ -20,7 +20,6 @@ const InputField = (props) => {
           label="Multiline"
           multiline
           rows={4}
-          defaultValue="Default Value"
           variant="outlined"
           {...field} {...props}
         />

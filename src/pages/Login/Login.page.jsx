@@ -12,7 +12,7 @@ const Login = (props)=> {
       <div className={classes.login_container}>
         <div className="login__container--header_container">
             <Typography variant='h3'>Login</Typography>
-            <Typography variant='p'>Login to unlock more features</Typography>
+            <Typography variant='h6'>Login to unlock more features</Typography>
         </div>
         <div className={classes.login_container__formContainer}>
             <Formik initialValues={{
@@ -41,7 +41,7 @@ const useStyles = makeStyles(({
   login_container:{
     maxWidth: '30rem',
     margin: '10rem auto',
-    background: '#e6e6e6',
+    background: '#c1c1c1',
     borderRadius: '0.5rem',
     padding:'1rem'
   },

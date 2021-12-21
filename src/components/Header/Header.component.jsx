@@ -26,7 +26,7 @@ const Header = () => {
                     <Link to='/Register'><Button disableElevation variant='contained' color="secondary">Register</Button></Link>
                     </div>):
                     (<>
-                        <Typography variant='h6'>{`Hello ${user}`}</Typography>
+                        <Typography variant='h6'>{`Hello ${user.email}`}</Typography>
                         <Button disableElevation variant="contained" size='small' onClick={()=>dispatch(userLogout())}>
                             Logout
                         </Button>
