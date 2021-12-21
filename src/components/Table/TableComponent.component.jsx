@@ -2,7 +2,6 @@ import Button from "../Button/Button.component";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteDocument } from "../../redux/actionCreators/documentActionCr";
-import Pagination from "../Pagination/Pagination.component";
 import {Table,Paper,TableRow,
     TableCell,TableHead,
     TableContainer,makeStyles} from '@material-ui/core';

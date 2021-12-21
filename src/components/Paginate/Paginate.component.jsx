@@ -1,23 +1,20 @@
-import { Link } from "react-router-dom";
-
-const Pagination = ({pages}) => {
-    let pageList=[];
-    for(let i=1;i<=pages;i++){
-        pageList.push(
-            (
-                <li key={i} className='pagination__list-item'>
-                    <Link to={`?page=${i}`}>{i}</Link>
-                </li>
-            ) 
-        ) 
-    }
+import {Pagination} from '@material-ui/lab';
+import { makeStyles } from '@material-ui/core';
+const Paginate = ({pages,...props}) => {
+    const classes = useStyles();
+    
     return (
         <div className="pagination__container">
-            <ul className="pagination">
-                {pageList}
-            </ul>
+            <Pagination className={classes.paging} count={pages} variant="outlined" {...props} />
         </div>
     )
 }
 
-export default Pagination;
+export default Paginate;
+
+const useStyles = makeStyles(({
+    paging:{
+        display: 'flex',
+        justifyContent: 'center'
+    }
+}));

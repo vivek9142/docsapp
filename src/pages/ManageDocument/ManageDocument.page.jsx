@@ -6,7 +6,7 @@ const ManageDocument = (props) => {
     const dispatch = useDispatch();
     let documentId = props.match.params.id;
 
-    let docs= useSelector(state => state.documents); 
+    let docs= useSelector(state => state.documents.documents); 
 
     let documentToUpdate=[];
     if(documentId) {
