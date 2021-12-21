@@ -19,8 +19,8 @@ const Loading = () => {
                 position:'absolute',
                 top:0,
                 left:0,
-                width:'100vw',
-                height:'100vh',
+                width:'98.8vw',
+                height:'99.9vh',
                 background:'rgb(51 51 51 / 94%)',
                 zIndex:2
             }}>
