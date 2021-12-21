@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {AppBar,Toolbar,Typography,Button} from '@material-ui/core/';
 import { useDispatch,useSelector } from "react-redux";
 import { userLogout } from "../../redux/actionCreators/userActionCr";
-// import Button from "../Button/Button.component";
+import {Link} from "react-router-dom";
 
 const Header = () => {
     const classes = useStyles();
@@ -16,13 +16,23 @@ const Header = () => {
         <AppBar position='static' className={classes.navContainer}>
                 <Toolbar className={classes.content_container}>
                     
-                    <Typography variant='h5'>DocsApp</Typography>
+                    <Link to='/'>
+                        <Typography variant='h5'>DocsApp</Typography>
+                    </Link>
                     
                     {user && Object.keys(user).length===0 ?
-                    (<></>):
-                    (<Typography variant='h6'>{`Hello ${user}`}</Typography>)
+                    (<div spacing='2'>
+                    <Link to='/login'><Button disableElevation variant='contained' >Login</Button></Link>
+                    <Link to='/Register'><Button disableElevation variant='contained' color="secondary">Register</Button></Link>
+                    </div>):
+                    (<>
+                        <Typography variant='h6'>{`Hello ${user}`}</Typography>
+                        <Button disableElevation variant="contained" size='small' onClick={()=>dispatch(userLogout())}>
+                            Logout
+                        </Button>
+                    </>)
                     }
-                    <Button disableElevation variant="contained" size='small' onClick={()=>dispatch(userLogout())}>Logout</Button>
+                    
                 </Toolbar>
         </AppBar>
         </>

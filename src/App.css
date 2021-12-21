@@ -1,7 +1,10 @@
 .App {
   text-align: center;
 }
-
+a,a:visited,a:active{
+  text-decoration: none;
+  color: rgb(41, 41, 41);  
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
