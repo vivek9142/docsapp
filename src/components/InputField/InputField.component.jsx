@@ -1,10 +1,10 @@
 import {useField} from 'formik';
 
 const InputField = (props) => {
-    // console.log(props);
+    
     const [field,meta] = useField(props);
     
-    if(props.type === 'text')
+    if(['text','password','email','number'].includes(props.type))
     return (
         <>
         <input {...field} {...props}/>
