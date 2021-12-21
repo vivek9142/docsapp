@@ -1,29 +1,59 @@
 import { Formik,Form } from "formik";
 import InputField from "../../components/InputField/InputField.component";
-import Button from "../../components/Button/Button.component";
 import { userLogin} from "../../redux/actionCreators/userActionCr";
 import { useDispatch } from "react-redux";
+import {Button,makeStyles, Typography} from '@material-ui/core';
 
 const Login = (props)=> {
+    const classes = useStyles();
     const dispatch = useDispatch();
     return (
       <>
-      <h1>login</h1>
-      <Formik initialValues={{
-        email:'',
-        password:''
-      }} onSubmit={val => dispatch(userLogin(val))}>
-        {formik => (
-          <Form>
-            <InputField type='email' name='email'/>
-            <InputField type='password' name='password'/>
-            <Button type='submit'>Submit</Button>
-          </Form>
-        )}
-      </Formik>
+      <div className={classes.login_container}>
+        <div className="login__container--header_container">
+            <Typography variant='h3'>Login</Typography>
+            <Typography variant='p'>Login to unlock more features</Typography>
+        </div>
+        <div className={classes.login_container__formContainer}>
+            <Formik initialValues={{
+              email:'',
+              password:''
+            }} onSubmit={val => dispatch(userLogin(val))}>
+              {formik => (
+                <Form className={classes.formContainer}>
+                  <InputField className={classes.InputField} variant='outlined' label='Email' type='email' size='small' name='email'/>
+                  <InputField className={classes.InputField} variant='outlined' label='Password' type='password' size='small' name='password'/>
+                  <Button color='primary' variant='contained' size='small' type='submit'>Submit</Button>
+                </Form>
+              )}
+            </Formik>
+        </div>
+        
+      </div>
       </>
     );
 
 }
 
 export default Login;
+
+const useStyles = makeStyles(({
+  login_container:{
+    maxWidth: '30rem',
+    margin: '10rem auto',
+    background: '#e6e6e6',
+    borderRadius: '0.5rem',
+    padding:'1rem'
+  },
+  login_container__formContainer:{
+    display: 'grid',
+  },
+  formContainer:{
+    display: 'grid',
+    padding: '1rem'
+  },
+  InputField:{
+    margin:'1rem 0',
+    background: '#fdfdfd'
+  }
+}));

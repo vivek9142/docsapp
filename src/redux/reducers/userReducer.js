@@ -14,7 +14,6 @@ const initialState = {
         password: 'asqawaa'
       }],
     loggedInUser:{},
-    loginError:'',
 }
 
 const userReducer = (state = initialState,action) => {
@@ -26,14 +25,11 @@ const userReducer = (state = initialState,action) => {
                 }
         case userActions.USER_LOGIN:
             const user = state.users.filter(user => user.email === action.payload.email && user.password === action.payload.password);
-            delete user[0]['password'];
-            console.log(user);
-            if(user){ return{
-                ...state, loginError:'',loggedInUser:{...user[0]}
-            }}
-            else return{
-                ...state,loginError:'Wrong username or password',loggedInUser:{}
+
+            if(user) return{
+                ...state,loggedInUser:{...user[0]}
             }
+            return;
         case userActions.USER_LOGOUT:
             return{
                 ...state,loggedInUser:{}

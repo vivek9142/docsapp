@@ -1,4 +1,5 @@
 import {useField} from 'formik';
+import { TextField,MenuItem } from '@material-ui/core';
 
 const InputField = (props) => {
     
@@ -7,14 +8,22 @@ const InputField = (props) => {
     if(['text','password','email','number'].includes(props.type))
     return (
         <>
-        <input {...field} {...props}/>
+        <TextField variant="outlined" {...field} {...props}/>
         </>
     )
 
     if(props.type === 'textarea')
     return (
         <>
-        <textarea {...field} {...props}/> 
+        <TextField
+          id="outlined-multiline-static"
+          label="Multiline"
+          multiline
+          rows={4}
+          defaultValue="Default Value"
+          variant="outlined"
+          {...field} {...props}
+        />
         </>
     )
 }
