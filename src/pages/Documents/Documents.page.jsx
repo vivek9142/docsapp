@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import Table from "../../components/Table/Table.component";
-import Pagination from "../../components/Pagination/Pagination.component";
+import TableComponent from "../../components/Table/TableComponent.component";
+import Paginate from "../../components/Paginate/Paginate.component";
 import { Link } from "react-router-dom";
 
 const Documents = (props) => {
@@ -15,8 +15,8 @@ const Documents = (props) => {
         <>
         <h1>documents page</h1>
         <Link to='/document/manage/'>Create Document</Link>
-        <Table docs={Docs}/>
-        <Pagination pages={pages}/>
+        <TableComponent docs={Docs}/>
+        <Paginate pages={pages}/>
         </>
     )
 }
