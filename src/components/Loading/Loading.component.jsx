@@ -6,7 +6,7 @@ const Loading = () => {
     const [load,setLoad] = React.useState(true);
 
     React.useEffect(()=>{
-        let timer = setTimeout(() => {
+        setTimeout(() => {
             setLoad((prevState) => !prevState);
           }, timeLoading);
     },[]);

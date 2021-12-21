@@ -11,7 +11,7 @@ const InputField = (props) => {
         <TextField variant="outlined" {...field} {...props}/>
         </>
     )
-
+    console.log(meta);
     if(props.type === 'textarea')
     return (
         <>
