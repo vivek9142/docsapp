@@ -4,7 +4,7 @@ import TableComponent from "../../components/Table/TableComponent.component";
 import Paginate from "../../components/Paginate/Paginate.component";
 import { Link } from "react-router-dom";
 import { Button,Typography,makeStyles } from '@material-ui/core';
-
+import Loading from '../../components/Loading/Loading.component';
 
 const Documents = (props) => {
     const classes = useStyles();
@@ -22,6 +22,7 @@ const Documents = (props) => {
     
     return (
         <>
+        <Loading/>
         <div className={classes.homepage_container}>
         <Typography className={classes.main__heading} variant='h3'>Documents</Typography>
         

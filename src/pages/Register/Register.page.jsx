@@ -3,12 +3,14 @@ import InputField from "../../components/InputField/InputField.component";
 import { userRegister } from "../../redux/actionCreators/userActionCr";
 import { useDispatch } from "react-redux";
 import {Button,makeStyles, Typography} from '@material-ui/core';
+import Loading from "../../components/Loading/Loading.component";
 
 const Register = (props)=> {
   const classes = useStyles();
   const dispatch = useDispatch();
     return (
       <>
+      <Loading/>
         <div className={classes.register_container}>
         <div className="login__container--header_container">
             <Typography variant='h3'>Register</Typography>
@@ -20,7 +22,7 @@ const Register = (props)=> {
               email:'',
               phone:'',
               password:''
-            }} onSubmit={val => dispatch(userRegister(val))}>
+            }} onSubmit={async val => {await dispatch(userRegister(val));await props.history.goBack();}}>
               {formik => (
                 <Form className={classes.formContainer}>
                   <InputField className={classes.InputField} variant='outlined' label='Name' type='text' size='small' name='name'/>

@@ -3,12 +3,13 @@ import InputField from "../../components/InputField/InputField.component";
 import { userLogin} from "../../redux/actionCreators/userActionCr";
 import { useDispatch } from "react-redux";
 import {Button,makeStyles, Typography} from '@material-ui/core';
-
+import Loading from "../../components/Loading/Loading.component";
 const Login = (props)=> {
     const classes = useStyles();
     const dispatch = useDispatch();
     return (
       <>
+      <Loading/>
       <div className={classes.login_container}>
         <div className="login__container--header_container">
             <Typography variant='h3'>Login</Typography>
@@ -18,7 +19,7 @@ const Login = (props)=> {
             <Formik initialValues={{
               email:'',
               password:''
-            }} onSubmit={val => dispatch(userLogin(val))}>
+            }} onSubmit={async val => {await dispatch(userLogin(val)); await props.history.goBack();}}>
               {formik => (
                 <Form className={classes.formContainer}>
                   <InputField className={classes.InputField} variant='outlined' label='Email' type='email' size='small' name='email'/>

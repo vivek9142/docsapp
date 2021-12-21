@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import {Formik,Form} from 'formik';
 import InputField from '../../components/InputField/InputField.component';
 import {useDispatch,useSelector} from 'react-redux';
 import { addDocument,updateDocument } from '../../redux/actionCreators/documentActionCr';
 import {Button,makeStyles, Typography} from '@material-ui/core';
+import Loading from '../../components/Loading/Loading.component';
 
 const ManageDocument = (props) => {
     const classes = useStyles();
@@ -18,14 +20,16 @@ const ManageDocument = (props) => {
         console.log(documentId,documentToUpdate);
         if(!documentToUpdate.length) return (<h1>No Documents results found with id  - {documentId} !</h1>);
     }
-    const submitHandler = (val) => {
-        if(documentToUpdate.length>0) 
-            dispatch(updateDocument({id:documentToUpdate[0].id, ...val}));
+    const submitHandler = async(val) => {
+        if(documentToUpdate.length>0)
+          await dispatch(updateDocument({id:documentToUpdate[0].id, ...val}));
         else 
-            dispatch(addDocument(val));
+          await dispatch(addDocument(val));
+            
     }
     return (
         <>
+        <Loading/>
         <div className={classes.manageDocs_container}>
         <div className="login__container--header_container">
             <Typography variant='h3'>
@@ -49,23 +53,6 @@ const ManageDocument = (props) => {
         </div>
         
       </div>
-
-
-        <h1>{documentToUpdate.length>0 ? `Update Document  ${documentId}` : `Add new Document`}</h1>
-        <Formik initialValues={{
-            title:documentToUpdate.length>0?documentToUpdate[0].title:'',
-            desc:documentToUpdate.length>0?documentToUpdate[0].desc:''
-        }} onSubmit={val => submitHandler(val)}>
-            {
-                formik => (
-                    <Form>
-                        <InputField name='title' type='text' placeholder='enter title'/>
-                        <InputField name='desc' type='textarea' placeholder='enter description'/>
-                        <button type='submit'>Submit</button>
-                    </Form>
-                )
-            }
-        </Formik>
         </>
     )
 }
