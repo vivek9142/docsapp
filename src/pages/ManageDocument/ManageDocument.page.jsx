@@ -40,7 +40,7 @@ const ManageDocument = (props) => {
             <Formik initialValues={{
               title:documentToUpdate.length>0?documentToUpdate[0].title:'',
               desc:documentToUpdate.length>0?documentToUpdate[0].desc:''
-            }} onSubmit={val => submitHandler(val)}>
+            }} onSubmit={async val =>{ await submitHandler(val); await props.history.push('/');}}>
               {formik => (
                 <Form className={classes.formContainer}>
                   <InputField className={classes.InputField} variant='outlined' label='Title' type='text' size='small' name='title'/>

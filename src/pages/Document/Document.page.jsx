@@ -13,7 +13,7 @@ const Document = (props) => {
 
     const delHandler = (async (id) => {
         await dispatch(deleteDocument(id));
-        await props.history.goBack();
+        await props.history.push('/');
     });
 
     return (

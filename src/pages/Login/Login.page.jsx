@@ -19,7 +19,7 @@ const Login = (props)=> {
             <Formik initialValues={{
               email:'',
               password:''
-            }} onSubmit={async val => {await dispatch(userLogin(val)); await props.history.goBack();}}>
+            }} onSubmit={async val => {await dispatch(userLogin(val)); await props.history.push('/');}}>
               {formik => (
                 <Form className={classes.formContainer}>
                   <InputField className={classes.InputField} variant='outlined' label='Email' type='email' size='small' name='email'/>

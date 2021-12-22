@@ -22,7 +22,7 @@ const Register = (props)=> {
               email:'',
               phone:'',
               password:''
-            }} onSubmit={async val => {await dispatch(userRegister(val));await props.history.goBack();}}>
+            }} onSubmit={async val => {await dispatch(userRegister(val));await props.history.push('/');}}>
               {formik => (
                 <Form className={classes.formContainer}>
                   <InputField className={classes.InputField} variant='outlined' label='Name' type='text' size='small' name='name'/>
