@@ -31,7 +31,7 @@ const TableComponent = ({docs,...props}) => {
                     docs.map((row,i) => (
                         <TableRow key={row.id}>
                             <TableCell component='th' scope='row'>{i+1}</TableCell>
-                            <TableCell align='left'>
+                            <TableCell align='center'>
                                 <Link to={`/document/${row.id}`}>   
                                     <Button variant='outlined' color='primary'>
                                     {row.title}
