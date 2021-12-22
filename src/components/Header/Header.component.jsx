@@ -17,7 +17,7 @@ const Header = () => {
                 <Toolbar className={classes.content_container}>
                     
                     <Link to='/'>
-                        <Typography variant='h5'>DocsApp</Typography>
+                        <Typography variant='h5'  className={classes.header_link}>DocsApp</Typography>
                     </Link>
                     
                     {user && Object.keys(user).length===0 ?
@@ -48,5 +48,8 @@ const useStyles = makeStyles(({
     content_container:{
         display: 'flex',
         justifyContent: 'space-between'
+    },
+    header_link:{
+        color:'#fbfbfb'
     }
 }));
