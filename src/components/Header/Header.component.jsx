@@ -22,7 +22,7 @@ const Header = () => {
                     
                     {user && Object.keys(user).length===0 ?
                     (<div spacing='2'>
-                    <Link to='/login'><Button disableElevation variant='contained' >Login</Button></Link>
+                    <Link className={classes.button} to='/login'><Button disableElevation variant='contained' >Login</Button></Link>
                     <Link to='/Register'><Button disableElevation variant='contained' color="secondary">Register</Button></Link>
                     </div>):
                     (<>
@@ -51,5 +51,8 @@ const useStyles = makeStyles(({
     },
     header_link:{
         color:'#fbfbfb'
+    },
+    button:{
+        margin: '1rem'
     }
 }));
