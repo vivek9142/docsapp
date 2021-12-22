@@ -1,10 +1,9 @@
-import Button from "../Button/Button.component";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteDocument } from "../../redux/actionCreators/documentActionCr";
 import {Table,Paper,TableRow,
     TableCell,TableHead,
-    TableContainer,makeStyles} from '@material-ui/core';
+    TableContainer,makeStyles,Button} from '@material-ui/core';
 
 const TableComponent = ({docs,...props}) => {
     const classes = useStyles();
@@ -33,9 +32,12 @@ const TableComponent = ({docs,...props}) => {
                         <TableRow key={row.id}>
                             <TableCell component='th' scope='row'>{i+1}</TableCell>
                             <TableCell align='left'>
-                                <Link to={`/document/${row.id}`}>
+                                <Link to={`/document/${row.id}`}>   
+                                    <Button variant='outlined' color='primary'>
                                     {row.title}
+                                    </Button>
                                 </Link>
+                                
                             </TableCell>
                             <TableCell align='left'>{row.desc}</TableCell>
                             <TableCell  align='center'>
